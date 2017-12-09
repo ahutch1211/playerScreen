@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Header = styled.header`
 	vertical-align: middle;
+	font-wight: bold;
 `;
 
 export default class WelcomeMessage extends Component {
