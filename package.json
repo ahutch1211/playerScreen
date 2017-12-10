@@ -2,7 +2,7 @@
   "name": "testing",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "http://localhost/",
+  "repository": "http://localhost:8080/",
   "author": "Adam Hutchison",
   "license": "MIT",
   "dependencies": {
