@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WelcomeMessage from './components/WelcomeMessage.jsx';
+import WelcomeMessage from 'components/WelcomeMessage';
 
 const appData = {
-	title: 'React Demo App YAY'
+	title: 'React App Placeholder'
 };
 
 ReactDOM.render(

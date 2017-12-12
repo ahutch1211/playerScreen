@@ -8,11 +8,11 @@ const Header = styled.header`
 
 export default class WelcomeMessage extends Component {
 	render() {
-		const { data: { title = 'Hello World  =)' } = {} } = this.props;
+		const { data: { title = 'missing title' } = {} } = this.props;
 
 		return (
 			<Header>
-				<h1>`Welcome to ${title}.`</h1>
+				<h1>{title}</h1>
 			</Header>
 		);
 	}

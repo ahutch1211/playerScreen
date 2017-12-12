@@ -19,6 +19,10 @@ module.exports = {
 		port: 8080,
 		contentBase: './bundles/'
 	},
+	resolve: {
+		modules: ['app', 'node_modules'],
+		extensions: ['.jsx', '.js', '.json']
+	},
 	module: {
 		loaders: [
 			{
