@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -6,14 +6,12 @@ const Header = styled.header`
 	font-wight: bold;
 `;
 
-export default class Index extends Component {
-	render() {
-		const { data: { title = 'missing title' } = {} } = this.props;
+export default ({ data }) => {
+	const { title = 'missing title' } = data;
 
-		return (
-			<Header>
-				<h1>{title}</h1>
-			</Header>
-		);
-	}
-}
+	return (
+		<Header>
+			<h1>{title}</h1>
+		</Header>
+	);
+};
