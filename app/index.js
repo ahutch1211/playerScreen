@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import WelcomeMessage from './components/WelcomeMessage.jsx';
 
 const appData = {
-	title: 'React Demo App'
+	title: 'React Demo App YAY'
 };
 
 ReactDOM.render(

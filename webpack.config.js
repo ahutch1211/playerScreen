@@ -1,16 +1,23 @@
+var path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const injectConfig = new HtmlWebpackPlugin({
-	template: './index.htm/',
+	template: path.resolve(__dirname, 'app/index.htm'),
 	filename: 'index.htm',
 	inject: 'body'
 });
 
 module.exports = {
-	context: `${__dirname}/app`,
-	entry: './index.js',
+	context: path.resolve(__dirname),
+	entry: './app/index.js',
 	output: {
-		path: `${__dirname}/build`,
+		path: path.resolve(__dirname, 'bundles'),
 		filename: 'bundle.js'
+	},
+	devtool: 'inline-source-map',
+	devServer: {
+		port: 8080,
+		contentBase: './bundles/'
 	},
 	module: {
 		loaders: [
