@@ -6,7 +6,7 @@ const Header = styled.header`
 	font-wight: bold;
 `;
 
-export default class WelcomeMessage extends Component {
+export default class Index extends Component {
 	render() {
 		const { data: { title = 'missing title' } = {} } = this.props;
 
