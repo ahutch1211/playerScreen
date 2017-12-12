@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WelcomeMessage from 'components/WelcomeMessage';
+import Index from 'components/index';
 
 const appData = {
 	title: 'React App Placeholder'
 };
 
-ReactDOM.render(
-	<WelcomeMessage data={appData} />,
-	document.getElementById('container')
-);
+ReactDOM.render(<Index data={appData} />, document.getElementById('container'));
