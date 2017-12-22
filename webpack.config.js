@@ -21,7 +21,7 @@ module.exports = {
 	},
 	resolve: {
 		modules: ['app', 'node_modules'],
-		extensions: ['.jsx', '.js', '.json']
+		extensions: ['.jsx', '.js', '.json', '.png']
 	},
 	module: {
 		loaders: [
@@ -32,6 +32,18 @@ module.exports = {
 				query: {
 					presets: ['react']
 				}
+			},
+			{
+				test: /\.(gif|png|jpe?g|svg)$/i,
+				use: [
+					'file-loader',
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							bypassOnDebug: true
+						}
+					}
+				]
 			}
 		]
 	},
