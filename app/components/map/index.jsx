@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Konva from 'konva';
 import { Stage, Layer, Rect, Text, Image, Line } from 'react-konva';
 import { debounce } from 'lodash';
 
 import map from 'assets/test';
 import { LINE_WIDTH } from 'common/constants';
+
+const MapIndex = styled.div`
+	&:after {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to bottom, #000 2px, transparent 2px),
+			linear-gradient(to right, #000 2px, transparent 2px);
+		background-size: 10%;
+		background-color: rgba(255, 0, 0, 0.2);
+		padding: 1px;
+	}
+`;
 
 class ColoredRect extends Component {
 	constructor(props) {
@@ -68,63 +85,6 @@ class Map extends Component {
 	}
 }
 
-const GridLine = (points = []) => (
-	<Line points={points} stroke={'grey'} strokeWidth={1} />
-);
-
-class Grid extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			columns: this.getColumns(props.height),
-			rows: this.getRows(props.width)
-		};
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (this.props !== nextProps) {
-			this.setState({
-				columns: this.getColumns(nextProps.height),
-				rows: this.getRows(nextProps.width)
-			});
-		}
-	}
-
-	getColumns(height) {
-		const maxColumns = height / LINE_WIDTH;
-		let columns = [];
-
-		for (let i = 0; i < maxColumns; i++) {
-			columns.push([0, i * LINE_WIDTH, height, i * LINE_WIDTH]);
-		}
-
-		return columns;
-	}
-
-	getRows(width) {
-		const maxRows = width / LINE_WIDTH;
-		let rows = [];
-
-		for (let i = 0; i < maxRows; i++) {
-			rows.push([i * LINE_WIDTH, 0, i * LINE_WIDTH, width]);
-		}
-
-		return rows;
-	}
-
-	render() {
-		const { columns, rows } = this.state;
-
-		return (
-			<Layer>
-				{columns.map((points, i) => <GridLine key={i} points={points} />)}
-				{rows.map((points, i) => <GridLine key={i} points={points} />)}
-			</Layer>
-		);
-	}
-}
-
 export default class Index extends Component {
 	constructor(props) {
 		super(props);
@@ -156,18 +116,19 @@ export default class Index extends Component {
 		const { width, height } = this.state;
 
 		return (
-			<Stage width={width} height={height}>
-				{shouldShowMap && (
+			<MapIndex>
+				<Stage width={width} height={height}>
+					{shouldShowMap && (
+						<Layer>
+							<Map width={width} height={height} />
+						</Layer>
+					)}
 					<Layer>
-						<Map width={width} height={height} />
+						{/* <Text text="beta 1.0" /> */}
+						<ColoredRect />
 					</Layer>
-				)}
-				<Grid width={width} height={height} />
-				<Layer>
-					{/* <Text text="beta 1.0" /> */}
-					<ColoredRect />
-				</Layer>
-			</Stage>
+				</Stage>
+			</MapIndex>
 		);
 	}
 }
