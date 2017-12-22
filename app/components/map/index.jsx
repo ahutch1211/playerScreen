@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Konva from 'konva';
 import { Stage, Layer, Rect, Text, Image, Line } from 'react-konva';
+import { debounce } from 'lodash';
 
 import map from 'assets/test';
 import { LINE_WIDTH } from 'common/constants';
@@ -67,20 +68,8 @@ class Map extends Component {
 	}
 }
 
-const column = index => (
-	<Line
-		points={[index * LINE_WIDTH, 0, index * LINE_WIDTH, window.innerHeight]}
-		stroke={'grey'}
-		strokeWidth={1}
-	/>
-);
-
-const row = index => (
-	<Line
-		points={[0, index * LINE_WIDTH, window.innerWidth, index * LINE_WIDTH]}
-		stroke={'grey'}
-		strokeWidth={1}
-	/>
+const GridLine = (points = []) => (
+	<Line points={points} stroke={'grey'} strokeWidth={1} />
 );
 
 class Grid extends Component {
@@ -88,38 +77,49 @@ class Grid extends Component {
 		super(props);
 
 		this.state = {
-			columns: [],
-			rows: []
+			columns: this.getColumns(props.height),
+			rows: this.getRows(props.width)
 		};
-
-		this.currentHeight = window.innerHeight;
-		this.currentWidth = window.innerWidth;
 	}
 
-	getColumns() {}
+	componentWillReceiveProps(nextProps) {
+		if (this.props !== nextProps) {
+			this.setState({
+				columns: this.getColumns(nextProps.height),
+				rows: this.getRows(nextProps.width)
+			});
+		}
+	}
 
-	getRows() {
-		let row = [];
+	getColumns(height) {
+		const maxColumns = height / LINE_WIDTH;
+		let columns = [];
+
+		for (let i = 0; i < maxColumns; i++) {
+			columns.push([0, i * LINE_WIDTH, height, i * LINE_WIDTH]);
+		}
+
+		return columns;
+	}
+
+	getRows(width) {
+		const maxRows = width / LINE_WIDTH;
+		let rows = [];
+
+		for (let i = 0; i < maxRows; i++) {
+			rows.push([i * LINE_WIDTH, 0, i * LINE_WIDTH, width]);
+		}
+
+		return rows;
 	}
 
 	render() {
+		const { columns, rows } = this.state;
+
 		return (
 			<Layer>
-				<Line
-					points={[0, 0, 0, window.innerHeight]}
-					stroke={'grey'}
-					strokeWidth={1}
-				/>
-				<Line
-					points={[50, 0, 50, window.innerHeight]}
-					stroke={'grey'}
-					strokeWidth={1}
-				/>
-				<Line
-					points={[100, 0, 100, window.innerHeight]}
-					stroke={'grey'}
-					strokeWidth={1}
-				/>
+				{columns.map((points, i) => <GridLine key={i} points={points} />)}
+				{rows.map((points, i) => <GridLine key={i} points={points} />)}
 			</Layer>
 		);
 	}
@@ -162,7 +162,7 @@ export default class Index extends Component {
 						<Map width={width} height={height} />
 					</Layer>
 				)}
-				<Grid />
+				<Grid width={width} height={height} />
 				<Layer>
 					{/* <Text text="beta 1.0" /> */}
 					<ColoredRect />
