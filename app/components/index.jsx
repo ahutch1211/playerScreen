@@ -1,19 +1,22 @@
 import React from 'react';
+import { reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
 import Map from 'components/map/index';
 
-const Header = styled.header`
+const Container = styled.div`
 	vertical-align: middle;
 	font-wight: bold;
 `;
 
-export default ({ data }) => {
-	const { title } = data;
+const CharacterSheet = ({ data }) => (
+	<Container>
+		<Map />
+	</Container>
+);
 
-	return (
-		<Header title={title}>
-			<Map />
-		</Header>
-	);
-};
+reduxForm({
+	form: 'player'
+})(CharacterSheet);
+
+export default CharacterSheet;

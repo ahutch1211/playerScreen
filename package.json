@@ -42,7 +42,8 @@
     "react-konva": "^1.6.4",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-form": "^7.2.0"
+    "redux-form": "^7.2.0",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "webpack-dev-server"
