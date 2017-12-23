@@ -7,15 +7,11 @@ import Player from 'components/map/player';
 
 export default class Index extends Component {
 	render() {
-		const shouldShowMap = true;
-
 		return (
 			<Stage width={CANVAS_WIDTH} height={CANVAS_HEIGHT}>
-				{shouldShowMap && (
-					<Layer>
-						<Background />
-					</Layer>
-				)}
+				<Layer>
+					<Background />
+				</Layer>
 				<Layer>
 					<Grid />
 				</Layer>
