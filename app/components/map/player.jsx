@@ -29,8 +29,8 @@ export default class Player extends Component {
 
 		shape.setAttrs({
 			shadowOffset: {
-				x: 10,
-				y: 10
+				x: 8,
+				y: 8
 			},
 			scale: {
 				x: 1.2,
