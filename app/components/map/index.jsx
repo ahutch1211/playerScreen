@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
 import Background from 'components/map/background';
 import Grid from 'components/map/grid';
 import Player from 'components/map/player';
+import Team from 'components/map/team';
 
 export default class Index extends Component {
 	render() {
@@ -16,8 +17,10 @@ export default class Index extends Component {
 					<Grid />
 				</Layer>
 				<Layer>
-					{/* <Text text="beta 1.0" /> */}
 					<Player />
+				</Layer>
+				<Layer>
+					<Team />
 				</Layer>
 			</Stage>
 		);

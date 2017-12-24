@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-konva';
 import map from 'assets/test';
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
 
 export default class Background extends Component {
 	constructor(props) {

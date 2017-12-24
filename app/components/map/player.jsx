@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
 import { Rect } from 'react-konva';
 import Konva from 'konva';
-import { PLAYER_SIZE, CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/constants';
+import { PLAYER_SIZE, CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
+
+export const PlayerIcon = ({
+	innerRef,
+	posX,
+	posY,
+	color,
+	shadowOffset,
+	onDragBound = null,
+	...rest
+}) => (
+	<Rect
+		ref={innerRef}
+		x={posX}
+		y={posY}
+		width={PLAYER_SIZE}
+		height={PLAYER_SIZE}
+		fill={color}
+		shadowBlur={2}
+		stroke={'black'}
+		strokeWidth={2}
+		dragBoundFunc={onDragBound}
+		{...rest}
+	/>
+);
 
 export default class Player extends Component {
 	constructor(props) {
@@ -45,9 +69,9 @@ export default class Player extends Component {
 		this.tween = new Konva.Tween({
 			node: shape,
 			duration: 0.5,
-			easing: Konva.Easings.ElasticEaseOut,
 			scaleX: 1,
 			scaleY: 1,
+			easing: Konva.Easings.ElasticEaseOut,
 			shadowOffsetX: this.shadowOffset.x,
 			shadowOffsetY: this.shadowOffset.y
 		});
@@ -66,21 +90,16 @@ export default class Player extends Component {
 		const { posX = 50, posY = 100, color = 'white' } = this.props;
 
 		return (
-			<Rect
-				ref={this.playerRef}
-				x={posX}
-				y={posY}
-				width={PLAYER_SIZE}
-				height={PLAYER_SIZE}
-				fill={color}
+			<PlayerIcon
+				innerRef={this.playerRef}
+				posX={posX}
+				posY={posY}
+				color={color}
 				shadowOffset={this.shadowOffset}
-				shadowBlur={2}
-				stroke={'black'}
-				strokeWidth={2}
-				draggable
-				dragBoundFunc={this.handleOnDragBound}
+				onDragBound={this.handleOnDragBound}
 				onDragStart={this.handleOnDragStart}
 				onDragEnd={this.handleOnDragEnd}
+				draggable
 			/>
 		);
 	}

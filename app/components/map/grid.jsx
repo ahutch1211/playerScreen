@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Line } from 'react-konva';
-import { CANVAS_WIDTH, CANVAS_HEIGHT, GRID_CELL_SIZE } from 'common/constants';
+import {
+	CANVAS_WIDTH,
+	CANVAS_HEIGHT,
+	GRID_CELL_SIZE
+} from 'common/map/constants';
 
 const GridLine = ({ points = [] }) => (
 	<Line points={points} stroke={'grey'} strokeWidth={1} />
