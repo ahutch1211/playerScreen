@@ -7,7 +7,7 @@ import {
 } from 'common/map/constants';
 
 const GridLine = ({ points = [] }) => (
-	<Line points={points} stroke={'grey'} strokeWidth={1} />
+	<Line points={points} stroke={'black'} strokeWidth={2} />
 );
 
 export default class Grid extends Component {
