@@ -13,11 +13,9 @@ const Battleground = styled.div`
 	margin-top: 6em;
 	padding: 0.5em 0.5em 0.5em;
 	border: 2px solid black;
-	background-color: white;
+	background-color: #f4f4f4;
 	box-shadow: 5px 5px 7px black;
 	border-radius: 15px;
-	-moz-box-shadow: 5px 5px 7px black;
-	-moz-border-radius: 15px;
 `;
 
 export default class Index extends Component {

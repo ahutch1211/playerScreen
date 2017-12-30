@@ -64,10 +64,8 @@ export default class Player extends Component {
 	}
 
 	handleOnDragEnd(event) {
-		var shape = event.target;
-
 		this.tween = new Konva.Tween({
-			node: shape,
+			node: event.target,
 			duration: 0.5,
 			scaleX: 1,
 			scaleY: 1,

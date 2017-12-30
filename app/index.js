@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CharacterSheet from 'components/index';
+import CharacterSheet from 'components/CharacterSheet';
 //import { applyMiddleware, createStore } from 'redux';
 
 // // Logger with default options
@@ -8,7 +8,6 @@ import CharacterSheet from 'components/index';
 // const store = createStore(reducer, applyMiddleware(logger));
 
 const appData = {
-	title: 'Character Sheet',
 	character: { id: 12 }
 };
 
