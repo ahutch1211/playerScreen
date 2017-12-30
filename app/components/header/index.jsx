@@ -13,7 +13,7 @@ const Header = styled.div`
 	left: 0;
 	z-index: 1;
 	border: 1px solid black;
-	background-color: rgba(255, 255, 255, 0.95);
+	background-color: rgba(255, 255, 255, 0.9);
 	/* background-color: #e0e0e0; */
 	/* box-shadow: 1px 1px 1px black; */
 	-moz-box-shadow: 1px 1px 1px black;
