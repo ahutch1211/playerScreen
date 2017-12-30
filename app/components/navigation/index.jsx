@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Tab = styled.div`
-	width: 1.15em;
-	height: 1.15em;
+	width: 1em;
+	height: 1.25em;
 	background-color: white;
 	margin: 1em 0;
 	border: 1px solid black;
-	border-radius: 0 10px 10px 0;
-	box-shadow: inset 0px 0px 3px 0px black, 3px 3px 5px black;
+	border-radius: 0 9px 9px 0;
+	box-shadow: inset 0px 0px 5px 0px black, 3px 3px 5px black;
 	overflow: hidden;
+
+	&:hover {
+		box-shadow: inset 0px 0px 2px 0px black, 5px 5px 7px black;
+	}
 `;
 
 const Navigation = styled.div`
@@ -24,15 +28,11 @@ const Label = styled.div`
 
 export default () => (
 	<Navigation>
-		<Tab height>
-			<Label>Character</Label>
-		</Tab>
-		<Tab>
-			<Label>Skills</Label>
-		</Tab>
-		<Tab>
-			<Label>Inventory</Label>
-		</Tab>
+		<Tab />
+		<Tab />
+		<Tab />
+		<Tab />
+		<Tab />
 	</Navigation>
 );
 

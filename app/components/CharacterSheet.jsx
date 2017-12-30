@@ -6,21 +6,24 @@ import Header from 'components/header/index';
 import Map from 'components/map/index';
 import Navigation from 'components/navigation/index';
 
+const Container = styled.div`
+	display: table;
+	margin: 0 auto;
+`;
+
 const Screen = styled.div`
-	position: absolute;
 	display: flex;
 	align-items: flex-end;
 `;
-// flex end
 
 const CharacterScreen = ({ data }) => (
-	<Fragment>
+	<Container>
 		<Header />
 		<Screen>
 			<Map />
 			<Navigation />
 		</Screen>
-	</Fragment>
+	</Container>
 );
 
 reduxForm({

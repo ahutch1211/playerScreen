@@ -9,7 +9,6 @@ import Team from 'components/map/team';
 
 const Battleground = styled.div`
 	display: table;
-	margin: 0 auto;
 	margin-top: 6em;
 	padding: 0.5em 0.5em 0.5em;
 	border: 2px solid black;
