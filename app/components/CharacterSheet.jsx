@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import reduxForm from 'redux-form/lib/reduxForm';
 import styled from 'styled-components';
 

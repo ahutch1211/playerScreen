@@ -26,13 +26,25 @@ const Picture = styled.img`
 	-moz-border-bottom-right-radius: 50px;
 `;
 
+const Section = styled.div`
+	align-self: flex-end;
+	padding: 5px;
+`;
+
+const LineBreak = styled.hr`
+	-webkit-border-before: 0.25em;
+	-webkit-border-after: 0;
+`;
+
 const PlayerInfo = styled.div``;
-const Description = styled.div``;
-const HP = styled.div``;
 
 const PrimaryText = styled.div`
 	font-weight: bold;
 	font-size: 2em;
+`;
+
+const PrimaryTextSmall = styled(PrimaryText)`
+	font-size: 1em;
 `;
 
 const SecondaryText = styled.div`
@@ -40,24 +52,61 @@ const SecondaryText = styled.div`
 	font-size: 0.85em;
 `;
 
+const Dark = styled.span`
+	color: black;
+`;
+
 const Stats = styled.div``;
 const CurrentHP = styled.span``;
 const MaxHP = styled.span``;
 
+const Separator = () => <Dark>-</Dark>;
+
 export default () => (
 	<Header>
-		<Picture src={characterImage} alt="char" width={100} />
+		<Picture src={characterImage} alt="characterPicture" width={100} />
 		{/* TODO CROP IMAGES SO THEY DONT DISTORT */}
-		<PlayerInfo>
-			<PrimaryText>Player Name</PrimaryText>
-			<Description>
-				<SecondaryText>Race / Background</SecondaryText>
-				<SecondaryText>Class / Sub Class</SecondaryText>
-			</Description>
-		</PlayerInfo>
-		<HP>
-			<SecondaryText>100 / 150</SecondaryText>
-			<PrimaryText>HP</PrimaryText>
-		</HP>
+		<Section>
+			<SecondaryText>
+				Race<Separator />Background
+			</SecondaryText>
+			<SecondaryText>
+				Class<Separator />Sub Class
+			</SecondaryText>
+			<PrimaryTextSmall>Player Name</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>
+				100<Separator />150
+			</SecondaryText>
+			<PrimaryTextSmall>HP</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>8</SecondaryText>
+			<PrimaryTextSmall>AP</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>XXXXXXXX</SecondaryText>
+			<SecondaryText>XXXXXXXX</SecondaryText>
+			<PrimaryTextSmall>Status</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>Tokens</SecondaryText>
+			<SecondaryText>Gold</SecondaryText>
+			<PrimaryTextSmall>Currency</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>Multiplier</SecondaryText>
+			<SecondaryText>Damage Die</SecondaryText>
+			<PrimaryTextSmall>Damage</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>90</SecondaryText>
+			<PrimaryTextSmall>Movement</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>4</SecondaryText>
+			<PrimaryTextSmall>Proficiency</PrimaryTextSmall>
+		</Section>
 	</Header>
 );
