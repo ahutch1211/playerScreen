@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Line } from 'react-konva';
-import {
-	CANVAS_WIDTH,
-	CANVAS_HEIGHT,
-	GRID_CELL_SIZE
-} from 'common/map/constants';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from 'common/constants';
+import { GRID_CELL_SIZE } from 'common/map/constants';
 
 const GridLine = ({ points = [] }) => (
 	<Line points={points} stroke={'black'} strokeWidth={2} />
@@ -15,28 +12,28 @@ export default class Grid extends Component {
 		super(props);
 
 		this.state = {
-			columns: this.getColumns(CANVAS_HEIGHT),
-			rows: this.getRows(CANVAS_WIDTH)
+			columns: this.getColumns(SCREEN_HEIGHT),
+			rows: this.getRows(SCREEN_WIDTH)
 		};
 	}
 
 	getColumns() {
-		const maxColumns = CANVAS_WIDTH / GRID_CELL_SIZE;
+		const maxColumns = SCREEN_WIDTH / GRID_CELL_SIZE;
 		let columns = [];
 
 		for (let i = 0; i < maxColumns; i++) {
-			columns.push([i * GRID_CELL_SIZE, 0, i * GRID_CELL_SIZE, CANVAS_HEIGHT]);
+			columns.push([i * GRID_CELL_SIZE, 0, i * GRID_CELL_SIZE, SCREEN_HEIGHT]);
 		}
 
 		return columns;
 	}
 
-	getRows(width) {
-		const maxRows = CANVAS_HEIGHT / GRID_CELL_SIZE;
+	getRows() {
+		const maxRows = SCREEN_HEIGHT / GRID_CELL_SIZE;
 		let rows = [];
 
 		for (let i = 0; i < maxRows; i++) {
-			rows.push([0, i * GRID_CELL_SIZE, CANVAS_WIDTH, i * GRID_CELL_SIZE]);
+			rows.push([0, i * GRID_CELL_SIZE, SCREEN_WIDTH, i * GRID_CELL_SIZE]);
 		}
 
 		return rows;

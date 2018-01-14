@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-const SHADOW = 'inset 0px 0px 5px 0px black, 3px 3px 5px black;';
-const ACTIVE_SHADOW = 'inset 0px 0px 1px 0px black, 5px 5px 7px black;';
-const TABS = {
-	CHARACTER: 'character',
-	SKILLS: 'skills',
-	INVENTORY: 'inventory',
-	MAP: 'map',
-	GAME_MASTER: 'gameMaster'
-};
+import { ACTIVE_SHADOW, SHADOW, TABS } from 'common/constants';
 
 const Tab = styled.div`
 	width: 1em;
@@ -36,25 +27,15 @@ export default class NavigationBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { tab: TABS.MAP };
-
-		this.handleOnClick = this.handleOnClick.bind(this);
-
-		this.onMapClick = () => this.handleOnClick(TABS.MAP);
-		this.onCharacterClick = () => this.handleOnClick(TABS.CHARACTER);
-		this.onSkillsClick = () => this.handleOnClick(TABS.SKILLS);
-		this.onInventoryClick = () => this.handleOnClick(TABS.INVENTORY);
-		this.onGMClick = () => this.handleOnClick(TABS.GAME_MASTER);
-	}
-
-	handleOnClick(tab) {
-		this.setState({
-			tab
-		});
+		this.onMapClick = () => props.onTabChange(TABS.MAP);
+		this.onCharacterClick = () => props.onTabChange(TABS.CHARACTER);
+		this.onSkillsClick = () => props.onTabChange(TABS.SKILLS);
+		this.onInventoryClick = () => props.onTabChange(TABS.INVENTORY);
+		this.onGMClick = () => props.onTabChange(TABS.GAME_MASTER);
 	}
 
 	render() {
-		const { tab } = this.state;
+		const { tab } = this.props;
 
 		return (
 			<Navigation>

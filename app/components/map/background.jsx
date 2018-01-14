@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-konva';
 import map from 'assets/test';
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from 'common/constants';
 
 export default class Background extends Component {
 	constructor(props) {
@@ -27,8 +27,8 @@ export default class Background extends Component {
 		return (
 			<Image
 				image={this.state.image}
-				width={CANVAS_WIDTH}
-				height={CANVAS_HEIGHT}
+				width={SCREEN_WIDTH}
+				height={SCREEN_HEIGHT}
 			/>
 		);
 	}

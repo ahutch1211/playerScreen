@@ -28,15 +28,8 @@ const Picture = styled.img`
 
 const Section = styled.div`
 	align-self: flex-end;
-	padding: 5px;
+	padding: 0.5em;
 `;
-
-const LineBreak = styled.hr`
-	-webkit-border-before: 0.25em;
-	-webkit-border-after: 0;
-`;
-
-const PlayerInfo = styled.div``;
 
 const PrimaryText = styled.div`
 	font-weight: bold;
@@ -60,25 +53,19 @@ const Stats = styled.div``;
 const CurrentHP = styled.span``;
 const MaxHP = styled.span``;
 
-const Separator = () => <Dark>-</Dark>;
+const Separator = <Dark>-</Dark>;
 
 export default () => (
 	<Header>
 		<Picture src={characterImage} alt="characterPicture" width={100} />
 		{/* TODO CROP IMAGES SO THEY DONT DISTORT */}
 		<Section>
-			<SecondaryText>
-				Race<Separator />Background
-			</SecondaryText>
-			<SecondaryText>
-				Class<Separator />Sub Class
-			</SecondaryText>
+			<SecondaryText>Race {Separator} Background</SecondaryText>
+			<SecondaryText>Class {Separator} Sub Class</SecondaryText>
 			<PrimaryTextSmall>Player Name</PrimaryTextSmall>
 		</Section>
 		<Section>
-			<SecondaryText>
-				100<Separator />150
-			</SecondaryText>
+			<SecondaryText>100 {Separator} 150</SecondaryText>
 			<PrimaryTextSmall>HP</PrimaryTextSmall>
 		</Section>
 		<Section>
@@ -98,15 +85,23 @@ export default () => (
 		<Section>
 			<SecondaryText>Multiplier</SecondaryText>
 			<SecondaryText>Damage Die</SecondaryText>
-			<PrimaryTextSmall>Damage</PrimaryTextSmall>
+			<PrimaryTextSmall>Attack</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>16</SecondaryText>
+			<PrimaryTextSmall>Armor Class</PrimaryTextSmall>
 		</Section>
 		<Section>
 			<SecondaryText>90</SecondaryText>
 			<PrimaryTextSmall>Movement</PrimaryTextSmall>
 		</Section>
 		<Section>
-			<SecondaryText>4</SecondaryText>
+			<SecondaryText>6</SecondaryText>
 			<PrimaryTextSmall>Proficiency</PrimaryTextSmall>
+		</Section>
+		<Section>
+			<SecondaryText>4</SecondaryText>
+			<PrimaryTextSmall>Initiative</PrimaryTextSmall>
 		</Section>
 	</Header>
 );
