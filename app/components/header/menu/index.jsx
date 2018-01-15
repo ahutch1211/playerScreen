@@ -2,25 +2,18 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Dropdown from 'components/header/menu/dropdown';
 
-const Container = styled.div`
-	/* display: flex;
-	flex-direction: column;
-	height: 100%; */
-`;
-
 const Button = styled.div`
-	align-self: center;
 	width: 2em;
 	height: 2em;
 	padding: 1.5em;
 	cursor: pointer;
-	overflow: hidden;
-	border: ${props => (props.active ? '1px solid black' : 'auto')};
+	margin-left: auto;
+	border-width: ${props => (props.active ? '0px 1px' : '0px')};
 	background-color: ${props => (props.active ? '#373737' : 'auto')};
 
 	&:hover {
-		border: ${props =>
-			props.active ? '1px solid black' : '1px solid lightgrey'};
+		border-width: ${props => (props.active ? '0px 1px' : '0px')};
+		border-color: ${props => (props.active ? 'black' : 'lightgrey')};
 		background-color: ${props => (props.active ? '#373737' : '#dfdce3')};
 	}
 `;
@@ -52,12 +45,12 @@ export default class Menu extends Component {
 
 	render() {
 		return (
-			<Container>
+			<Fragment>
 				<Button active={this.state.isActive} onClick={this.handleOnClick}>
 					<Icon />
 				</Button>
 				<Dropdown isOpen={this.state.isActive} />
-			</Container>
+			</Fragment>
 		);
 	}
 }

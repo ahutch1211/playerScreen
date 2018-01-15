@@ -4,7 +4,7 @@ import { ACTIVE_SHADOW, SHADOW, TABS } from 'common/constants';
 
 const Tab = styled.div`
 	width: 1em;
-	height: 1.25em;
+	height: 2em;
 	background-color: white;
 	margin: 1em 0;
 	border: 1px solid black;
