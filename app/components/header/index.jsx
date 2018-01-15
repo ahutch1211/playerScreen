@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
 import characterImage from 'assets/char';
+import Menu from 'components/header/menu/index';
 
 const Header = styled.div`
 	display: flex;
@@ -17,7 +17,6 @@ const Header = styled.div`
 	/* background-color: #e0e0e0; */
 	/* box-shadow: 1px 1px 1px black; */
 	-moz-box-shadow: 1px 1px 1px black;
-	overflow: hidden;
 	box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -15px 8px -10px #ccc;
 `;
 
@@ -38,6 +37,10 @@ const PrimaryText = styled.div`
 
 const PrimaryTextSmall = styled(PrimaryText)`
 	font-size: 1em;
+`;
+
+const Settings = styled.div`
+	margin-left: auto;
 `;
 
 const SecondaryText = styled.div`
@@ -103,5 +106,8 @@ export default () => (
 			<SecondaryText>4</SecondaryText>
 			<PrimaryTextSmall>Initiative</PrimaryTextSmall>
 		</Section>
+		<Settings>
+			<Menu />
+		</Settings>
 	</Header>
 );
