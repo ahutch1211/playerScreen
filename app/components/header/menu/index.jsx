@@ -49,7 +49,7 @@ export default class Menu extends Component {
 				<Button active={this.state.isActive} onClick={this.handleOnClick}>
 					<Icon />
 				</Button>
-				<Dropdown isOpen={this.state.isActive} />
+				{this.state.isActive && <Dropdown onClick={this.handleOnClick} />}
 			</Fragment>
 		);
 	}
