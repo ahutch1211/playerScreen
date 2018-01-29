@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import characterImage from 'assets/char';
 import Menu from 'components/header/menu/index';
+import Picture from 'components/header/picture';
 
 const Header = styled.div`
 	display: flex;
@@ -18,11 +18,6 @@ const Header = styled.div`
 	/* box-shadow: 1px 1px 1px black; */
 	-moz-box-shadow: 1px 1px 1px black;
 	box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -15px 8px -10px #ccc;
-`;
-
-const Picture = styled.img`
-	border-bottom-right-radius: 50px;
-	-moz-border-bottom-right-radius: 50px;
 `;
 
 const Section = styled.div`
@@ -60,7 +55,7 @@ const Separator = <Dark>-</Dark>;
 
 export default () => (
 	<Header>
-		<Picture src={characterImage} alt="characterPicture" width={100} />
+		<Picture />
 		{/* TODO CROP IMAGES SO THEY DONT DISTORT */}
 		<Section>
 			<SecondaryText>Race {Separator} Background</SecondaryText>

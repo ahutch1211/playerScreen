@@ -14,13 +14,13 @@ export default class Dropdown extends Component {
 	constructor(props) {
 		super(props);
 
-		this.dropdownRef = node => (this.dropdown = node);
+		this.getRef = node => (this.node = node);
 
 		this.handleOnClick = this.handleOnClick.bind(this);
 	}
 
 	handleOnClick(event) {
-		if (this.dropdown && !this.dropdown.contains(event.target)) {
+		if (this.node && !this.node.contains(event.target)) {
 			execute(this.props.onClick);
 		}
 	}
@@ -35,7 +35,7 @@ export default class Dropdown extends Component {
 
 	render() {
 		return (
-			<Container innerRef={this.dropdownRef}>
+			<Container innerRef={this.getRef}>
 				<div>Testing</div>
 			</Container>
 		);

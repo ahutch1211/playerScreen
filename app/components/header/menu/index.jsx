@@ -31,7 +31,7 @@ export default class Menu extends Component {
 		super(props);
 
 		this.state = {
-			isActive: false
+			open: false
 		};
 
 		this.handleOnClick = this.handleOnClick.bind(this);
@@ -39,17 +39,17 @@ export default class Menu extends Component {
 
 	handleOnClick() {
 		this.setState({
-			isActive: !this.state.isActive
+			open: !this.state.open
 		});
 	}
 
 	render() {
 		return (
 			<Fragment>
-				<Button active={this.state.isActive} onClick={this.handleOnClick}>
+				<Button active={this.state.open} onClick={this.handleOnClick}>
 					<Icon />
 				</Button>
-				{this.state.isActive && <Dropdown onClick={this.handleOnClick} />}
+				{this.state.open && <Dropdown onClick={this.handleOnClick} />}
 			</Fragment>
 		);
 	}

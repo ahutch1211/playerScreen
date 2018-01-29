@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import reduxForm from 'redux-form/lib/reduxForm';
+import { Form, Field } from 'react-final-form';
 import styled from 'styled-components';
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH, TABS } from 'common/constants';
@@ -31,7 +31,15 @@ const Screen = styled.div`
 	border-radius: 15px;
 `;
 
-class CharacterScreen extends Component {
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const onSubmit = async values => {
+	await sleep(300);
+	window.alert(JSON.stringify(values, 0, 2));
+};
+const required = value => (value ? undefined : 'Required');
+
+export default class CharacterScreen extends Component {
 	constructor(props) {
 		super(props);
 
@@ -51,17 +59,24 @@ class CharacterScreen extends Component {
 
 		return (
 			<Container>
-				<Header />
-				<Frame>
-					<Screen>
-						{tab === TABS.MAP && <Map />}
-						{tab === TABS.SKILLS && <Skills />}
-					</Screen>
-					<Navigation tab={tab} onTabChange={this.handleOnTabChange} />
-				</Frame>
+				<Form
+					onSubmit={onSubmit}
+					render={({ handleSubmit }) => (
+						<form onSubmit={handleSubmit}>
+							<Header />
+							<Frame>
+								<Screen>
+									{tab === TABS.MAP && <Map />}
+									{tab === TABS.SKILLS && <Skills />}
+								</Screen>
+								<Navigation tab={tab} onTabChange={this.handleOnTabChange} />
+							</Frame>
+						</form>
+					)}
+				/>
 			</Container>
 		);
 	}
 }
 
-export default reduxForm({ form: FORM_NAME })(CharacterScreen);
+//export default reduxForm({ form: FORM_NAME })(CharacterScreen);
