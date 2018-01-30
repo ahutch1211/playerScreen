@@ -1,9 +1,8 @@
-var path = require('path');
-
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const injectConfig = new HtmlWebpackPlugin({
 	template: path.resolve(__dirname, 'app/index.htm'),
-	filename: 'index.htm',
 	inject: 'body'
 });
 
@@ -16,8 +15,10 @@ module.exports = {
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		port: 8080,
-		contentBase: './bundles/'
+		publicPath: 'http://localhost:8080/',
+		compress: true,
+		historyApiFallback: true,
+		hot: true
 	},
 	resolve: {
 		modules: ['app', 'node_modules'],

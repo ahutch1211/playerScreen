@@ -48,6 +48,7 @@
     "redux-logger": "^3.0.6"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "build": "webpack",
+    "server": "webpack-dev-server --hot"
   }
 }
