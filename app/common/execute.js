@@ -1,3 +1,3 @@
 export default f => {
-	typeof f === 'function' && f();
+  typeof f === 'function' && f();
 };

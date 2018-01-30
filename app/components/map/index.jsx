@@ -7,22 +7,22 @@ import Player from 'components/map/player';
 import Team from 'components/map/team';
 
 export default class Index extends Component {
-	render() {
-		return (
-			<Stage width={SCREEN_WIDTH} height={SCREEN_HEIGHT}>
-				<Layer>
-					<Background />
-				</Layer>
-				<Layer>
-					<Grid />
-				</Layer>
-				<Layer>
-					<Team />
-				</Layer>
-				<Layer>
-					<Player />
-				</Layer>
-			</Stage>
-		);
-	}
+  render() {
+    return (
+      <Stage width={SCREEN_WIDTH} height={SCREEN_HEIGHT}>
+        <Layer>
+          <Background />
+        </Layer>
+        <Layer>
+          <Grid />
+        </Layer>
+        <Layer>
+          <Team />
+        </Layer>
+        <Layer>
+          <Player />
+        </Layer>
+      </Stage>
+    );
+  }
 }

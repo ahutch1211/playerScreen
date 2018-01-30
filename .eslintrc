@@ -6,7 +6,6 @@
       "error",
       {
         "singleQuote": true,
-        "useTabs": true,
         "jsxBracketSameLine": true
       }
     ],

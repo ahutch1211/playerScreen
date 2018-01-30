@@ -10,12 +10,12 @@ import CharacterSheet from 'components/CharacterSheet';
 const store = createStore(reducer, applyMiddleware(logger));
 
 const appData = {
-	character: { id: 12 }
+  character: { id: 12 }
 };
 
 ReactDOM.render(
-	<Provider store={store}>
-		<CharacterSheet data={appData} />
-	</Provider>,
-	document.getElementById('container')
+  <Provider store={store}>
+    <CharacterSheet data={appData} />
+  </Provider>,
+  document.getElementById('container')
 );
