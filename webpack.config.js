@@ -21,18 +21,21 @@ module.exports = {
     hot: true
   },
   resolve: {
-    modules: ['app', 'node_modules'],
+    modules: [path.resolve(__dirname, 'app'), 'node_modules'],
     extensions: ['.jsx', '.js', '.json', '.png']
   },
   module: {
     loaders: [
       {
+        enforce: 'pre',
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
