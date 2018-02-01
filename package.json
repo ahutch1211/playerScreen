@@ -6,6 +6,7 @@
   "author": "Adam Hutchison",
   "license": "MIT",
   "dependencies": {
+    "debounce": "^1.1.0",
     "final-form": "^4.0.4",
     "konva": "^1.7.6",
     "prop-types": "^15.6.0",
