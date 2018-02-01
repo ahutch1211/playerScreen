@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const injectScript = new HtmlWebpackPlugin({
+const injectApp = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'app/index.htm'),
   inject: 'body'
 });
@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'bundles'),
     filename: 'bundle.js'
   },
-  devtool: 'inline-source-map',
+  devtool: 'inline-cheap-source-map',
   devServer: {
     publicPath: 'http://localhost:8080/',
     compress: true,
@@ -54,5 +54,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [injectScript]
+  plugins: [injectApp]
 };
