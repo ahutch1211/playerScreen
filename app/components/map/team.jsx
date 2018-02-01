@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { PlayerIcon } from 'components/map/player';
+import { Icon } from 'components/map/player';
 
 export default () => (
   <Fragment>
-    <PlayerIcon posX={100} posY={100} color={'red'} />
-    <PlayerIcon posX={150} posY={100} color={'green'} />
-    <PlayerIcon posX={200} posY={100} color={'blue'} />
+    <Icon posX={100} posY={100} color={'red'} stroke={'black'} />
+    <Icon posX={150} posY={100} color={'green'} stroke={'black'} />
+    <Icon posX={200} posY={100} color={'blue'} stroke={'black'} />
   </Fragment>
 );

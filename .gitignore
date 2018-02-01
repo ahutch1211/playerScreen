@@ -1,6 +1,7 @@
 /.vscode/
 /node_modules/
 /bundles/
+jsconfig.json
 package-lock.json
 yarn-error.log
 yarn.lock

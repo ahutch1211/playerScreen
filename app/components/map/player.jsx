@@ -3,7 +3,7 @@ import { Rect } from 'react-konva';
 import Konva from 'konva';
 import { PLAYER_SIZE, CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
 
-export const PlayerIcon = ({
+export const Icon = ({
   innerRef,
   posX,
   posY,
@@ -20,7 +20,6 @@ export const PlayerIcon = ({
     height={PLAYER_SIZE}
     fill={color}
     shadowBlur={2}
-    stroke={'black'}
     strokeWidth={2}
     dragBoundFunc={onDragBound}
     {...rest}
@@ -85,14 +84,20 @@ export default class Player extends Component {
   }
 
   render() {
-    const { posX = 50, posY = 100, color = 'white' } = this.props;
+    const {
+      posX = 50,
+      posY = 100,
+      color = 'white',
+      stroke = 'black'
+    } = this.props;
 
     return (
-      <PlayerIcon
+      <Icon
         innerRef={this.playerRef}
         posX={posX}
         posY={posY}
         color={color}
+        stroke={stroke}
         shadowOffset={this.shadowOffset}
         onDragBound={this.handleOnDragBound}
         onDragStart={this.handleOnDragStart}

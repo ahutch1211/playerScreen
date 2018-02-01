@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const injectConfig = new HtmlWebpackPlugin({
+const injectScript = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'app/index.htm'),
   inject: 'body'
 });
@@ -22,18 +22,21 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'app'), 'node_modules'],
-    extensions: ['.jsx', '.js', '.json', '.png']
+    extensions: ['.jsx', '.js', '.json', '.png', '.jpg', '.jpeg']
   },
   module: {
     loaders: [
       {
         enforce: 'pre',
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
+        options: {
+          cache: true
+        }
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -51,5 +54,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [injectConfig]
+  plugins: [injectScript]
 };
