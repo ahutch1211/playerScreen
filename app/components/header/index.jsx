@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { PrimaryTextSmall, SecondaryText } from 'common/styles/text';
 import Menu from 'components/header/menu/index';
 import Picture from 'components/header/picture';
 
@@ -25,22 +26,8 @@ const Section = styled.div`
   padding: 0.5em;
 `;
 
-const PrimaryText = styled.div`
-  font-weight: bold;
-  font-size: 2em;
-`;
-
-const PrimaryTextSmall = styled(PrimaryText)`
-  font-size: 1em;
-`;
-
 const Settings = styled.div`
   margin-left: auto;
-`;
-
-const SecondaryText = styled.div`
-  color: rgba(0, 0, 0, 0.24);
-  font-size: 0.85em;
 `;
 
 const Dark = styled.span`

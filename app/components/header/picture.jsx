@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import debounce from 'debounce';
 import styled from 'styled-components';
-import characterImage from 'assets/char';
+import src from 'assets/char';
 
 const Image = styled.img`
   border-bottom-right-radius: 50px;
@@ -12,17 +13,17 @@ const Uploader = styled.input`
   display: none;
 `;
 
-export default class CharacterPicture extends Component {
+export default class Picture extends Component {
   constructor(props) {
     super(props);
 
-    this.handleOnDrag = this.handleOnDrag.bind(this);
+    this.handleOnDrag = debounce(this.handleOnDrag.bind(this), 200);
   }
 
   /* TODO CROP IMAGES SO THEY DONT DISTORT */
 
-  handleOnDrag() {
-    console.log('Drags onDrags');
+  handleOnDrag(event) {
+    console.log('Drags onDrags', event, event.target);
   }
 
   render() {
@@ -30,9 +31,10 @@ export default class CharacterPicture extends Component {
       <Fragment>
         <label htmlFor="uploader">
           <Image
-            src={characterImage}
+            src={src}
             alt="characterPicture"
             onDrop={this.handleOnDrag}
+            onDragOver={this.handleOnDrag}
             width={107}
           />
         </label>

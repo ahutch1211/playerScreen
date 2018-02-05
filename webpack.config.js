@@ -22,7 +22,7 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'app'), 'node_modules'],
-    extensions: ['.jsx', '.js', '.json', '.png', '.jpg', '.jpeg']
+    extensions: ['.jsx', '.js', '.json', '.png', '.jpg', '.jpeg', 'pdf']
   },
   module: {
     loaders: [
@@ -51,6 +51,14 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(pdf)$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader'
       }
     ]
   },

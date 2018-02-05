@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Dropdown from 'components/header/menu/dropdown';
+import { Settings as SettingsIcon } from 'common/icons';
 
 const Button = styled.div`
   width: 2em;
@@ -17,14 +18,6 @@ const Button = styled.div`
     background-color: ${props => (props.active ? '#373737' : '#dfdce3')};
   }
 `;
-
-const Icon = () => (
-  <Fragment>
-    <hr />
-    <hr />
-    <hr />
-  </Fragment>
-);
 
 export default class Menu extends Component {
   constructor(props) {
@@ -47,7 +40,7 @@ export default class Menu extends Component {
     return (
       <Fragment>
         <Button active={this.state.open} onClick={this.handleOnClick}>
-          <Icon />
+          <SettingsIcon />
         </Button>
         {this.state.open && <Dropdown onClick={this.handleOnClick} />}
       </Fragment>

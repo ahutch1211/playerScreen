@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH, TABS } from 'common/constants';
 import Header from 'components/header/index';
+import GameMaster from 'components/gamemaster/index';
 import Map from 'components/map/index';
 import Skills from 'components/skills/index';
 import Navigation from 'components/navigation/index';
@@ -68,6 +69,7 @@ export default class CharacterScreen extends Component {
                 <Screen>
                   {tab === TABS.MAP && <Map />}
                   {tab === TABS.SKILLS && <Skills />}
+                  {tab === TABS.GAME_MASTER && <GameMaster />}
                 </Screen>
                 <Navigation tab={tab} onTabChange={this.handleOnTabChange} />
               </Frame>
