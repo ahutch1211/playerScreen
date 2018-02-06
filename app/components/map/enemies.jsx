@@ -1,10 +1,17 @@
 import React, { Fragment } from 'react';
-import { Icon } from 'components/map/player';
+import MoveableIcon from 'components/map/player';
 
 export default () => (
   <Fragment>
-    <Icon posX={200} posY={100} color={'black'} stroke={'white'} />
-    <Icon posX={250} posY={100} color={'black'} stroke={'white'} />
-    <Icon posX={300} posY={100} color={'black'} stroke={'white'} />
+    <MoveableIcon
+      posX={600}
+      posY={200}
+      color={'black'}
+      stroke={'white'}
+      scaleX={2}
+      scaleY={2}
+    />
+    <MoveableIcon posX={650} posY={100} color={'black'} stroke={'white'} />
+    <MoveableIcon posX={700} posY={100} color={'black'} stroke={'white'} />
   </Fragment>
 );

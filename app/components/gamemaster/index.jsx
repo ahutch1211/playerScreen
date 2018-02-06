@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const Frame = styled.div`
   height: 95%;
-  width: 75%;
+  width: 80%;
   overflow-y: scroll;
   margin: 0 auto;
   border: 1px solid black;
@@ -45,8 +45,11 @@ export default class GameMaster extends Component {
     return (
       <Container>
         <Frame>
-          <Document file={playerHandbook} onLoadSuccess={this.onDocumentLoad}>
-            <Page scale={1.5} pageNumber={pageNumber} />
+          <Document
+            file={playerHandbook}
+            onLoadSuccess={this.onDocumentLoad}
+            loading={''}>
+            <Page scale={1.5} pageNumber={56} />
           </Document>
         </Frame>
         <PageNumber>

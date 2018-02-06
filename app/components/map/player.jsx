@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Rect } from 'react-konva';
 import Konva from 'konva';
-import { PLAYER_SIZE, CANVAS_WIDTH, CANVAS_HEIGHT } from 'common/map/constants';
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from 'common/constants';
+import { PLAYER_SIZE } from 'common/map/constants';
 
 export const Icon = ({
   innerRef,
@@ -30,11 +31,13 @@ export default class Player extends Component {
   constructor(props) {
     super(props);
 
+    const { scaleX = 1, scaleY = 1 } = props;
+
     this.boundary = {
-      x: CANVAS_WIDTH - PLAYER_SIZE,
-      y: CANVAS_HEIGHT - PLAYER_SIZE
+      x: SCREEN_WIDTH - PLAYER_SIZE * scaleX,
+      y: SCREEN_HEIGHT - PLAYER_SIZE * scaleY
     };
-    this.shadowOffset = { x: 2, y: 2 };
+    this.shadowOffset = { x: scaleX * 2, y: scaleY * 2 };
 
     this.tween = null;
     this.playerRef = node => (this.playerIcon = node);
@@ -44,7 +47,8 @@ export default class Player extends Component {
   }
 
   handleOnDragStart(event) {
-    var shape = event.target;
+    const { scaleX = 1, scaleY = 1 } = this.props;
+    let shape = event.target;
 
     if (this.tween) {
       this.tween.pause();
@@ -52,22 +56,24 @@ export default class Player extends Component {
 
     shape.setAttrs({
       shadowOffset: {
-        x: 8,
-        y: 8
+        x: this.shadowOffset.x * 3,
+        y: this.shadowOffset.y * 3
       },
       scale: {
-        x: 1.2,
-        y: 1.2
+        x: scaleX * 1.2,
+        y: scaleY * 1.2
       }
     });
   }
 
   handleOnDragEnd(event) {
+    const { scaleX = 1, scaleY = 1 } = this.props;
+
     this.tween = new Konva.Tween({
       node: event.target,
       duration: 0.5,
-      scaleX: 1,
-      scaleY: 1,
+      scaleX: scaleX,
+      scaleY: scaleY,
       easing: Konva.Easings.ElasticEaseOut,
       shadowOffsetX: this.shadowOffset.x,
       shadowOffsetY: this.shadowOffset.y
@@ -88,7 +94,8 @@ export default class Player extends Component {
       posX = 50,
       posY = 100,
       color = 'white',
-      stroke = 'black'
+      stroke = 'black',
+      ...rest
     } = this.props;
 
     return (
@@ -103,6 +110,7 @@ export default class Player extends Component {
         onDragStart={this.handleOnDragStart}
         onDragEnd={this.handleOnDragEnd}
         draggable
+        {...rest}
       />
     );
   }
