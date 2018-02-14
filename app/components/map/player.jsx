@@ -22,6 +22,8 @@ export const Icon = ({
     fill={color}
     shadowBlur={2}
     strokeWidth={2}
+    shadowOffsetX={2}
+    shadowOffsetY={2}
     dragBoundFunc={onDragBound}
     {...rest}
   />
@@ -37,9 +39,8 @@ export default class Player extends Component {
       x: SCREEN_WIDTH - PLAYER_SIZE * scaleX,
       y: SCREEN_HEIGHT - PLAYER_SIZE * scaleY
     };
-    this.shadowOffset = { x: scaleX * 2, y: scaleY * 2 };
+    this.shadowOffset = { x: 2, y: 2 };
 
-    this.tween = null;
     this.playerRef = node => (this.playerIcon = node);
     this.handleOnDragBound = this.handleOnDragBound.bind(this);
     this.handleOnDragStart = this.handleOnDragStart.bind(this);
