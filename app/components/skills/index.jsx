@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Loading from 'common/loader';
+import LoadingIcon from 'common/icons/loading';
 
 export default class Skills extends Component {
   render() {
     return (
       <div>
-        Skill Sheet <Loading />
+        Skill Sheet <LoadingIcon />
       </div>
     );
   }

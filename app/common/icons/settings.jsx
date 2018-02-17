@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-export const Settings = () => (
+export default () => (
   <Fragment>
     <hr />
     <hr />

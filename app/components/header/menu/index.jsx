@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Dropdown from 'components/header/menu/dropdown';
-import { Settings as SettingsIcon } from 'common/icons';
+import SettingsIcon from 'common/icons/settings';
 
 const Button = styled.div`
   width: 2em;
