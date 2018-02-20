@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var register = require('../common/register');
 var Character = require('../models/character');
-Character.methods(['get', 'put', 'post', 'delete']);
-Character.register(router, '/character');
+
+register(Character, router, 'character');
 
 module.exports = router;
