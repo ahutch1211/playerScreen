@@ -2,13 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const injectApp = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, 'app/index.htm'),
+  template: path.resolve(__dirname, 'client/index.htm'),
   inject: 'body'
 });
 
 module.exports = {
   context: path.resolve(__dirname),
-  entry: './app/index.js',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'bundles'),
     filename: 'bundle.js'
@@ -21,7 +21,7 @@ module.exports = {
     hot: true
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'app'), 'node_modules'],
+    modules: [path.resolve(__dirname, 'client'), 'node_modules'],
     extensions: ['.jsx', '.js', '.json', '.png', '.jpg', '.jpeg', 'pdf']
   },
   module: {

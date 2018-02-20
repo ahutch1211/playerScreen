@@ -1,7 +1,7 @@
 {
   "name": "playerscreen",
   "version": "1.0.0",
-  "main": "/app/index.js",
+  "main": "/client/index.js",
   "repository": "http://localhost:8080/",
   "author": "Adam Hutchison",
   "license": "MIT",

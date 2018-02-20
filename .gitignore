@@ -1,7 +1,6 @@
 /.vscode/
 /node_modules/
 /server/node_modules/
-/bundles/
 /kerberos/
 /server/yarn-error.log
 jsconfig.json
